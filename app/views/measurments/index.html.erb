@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Measurments</h1>
+
+<table>
+  <thead>
+    <tr>
+          <th>DateTime</th>
+          <th>Humidity</th>
+          <th colspan='3'>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurments.each do |measurment| %>
+      <tr>
+        <td><%= measurment.created_at %></td>
+        <td><%= measurment.value %></td>
+        <td><%= link_to 'Show', measurment %></td>
+        <td><%= link_to 'Edit', edit_measurment_path(measurment) %></td>
+        <td><%= link_to 'Destroy', measurment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Measurment', new_measurment_path %>
